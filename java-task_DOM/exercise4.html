@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #5: Input check for minimmum number of charecter should be 6 and password match in both input </title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        .err {
+            color: red;
+            font-size: 0.7em;
+        }
+    </style>
+ 
+</head>
+<body>
+
+<form name="pw">
+    <table>
+        <tr>
+            <td>Password (min 6 characters):</td>
+            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password"></td>
+            <td>
+                <div id="pw1_check" class="err"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Repeat password:</td>
+            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password"></td>
+            <td>
+                <div id="pw2_check" class="err"></div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" id="submitBtn"/>
+</form>
+
+
+<script>
+document.getElementById('password1').oninput= function(){passEnter()}
+function passEnter(){
+
+    let passLen=password1.value.length ;
+    if(passLen<6){
+        document.getElementById('pw1_check').innerHTML = "Too Short" ;
+        document.getElementById('submitBtn').style.display="none"
+        document.getElementById('pw1_check').style.fontWeight= "bold" ;
+        document.getElementById('password1').style.boxShadow="1px 1px 5px  2px blue";
+       
+
+
+    }else{
+        document.getElementById('pw1_check').innerHTML = "" ;
+        document.getElementById('password1').style.boxShadow="0px 0px 0px  0px black";
+        document.getElementById('submitBtn').style.display="block"
+    }
+    console.log("hhhhh"+passLen);
+}
+
+
+document.getElementById('password2').oninput= function(){passReEnter()}
+function passReEnter(){
+
+    let passReLen=password2.value.length ;
+    if(password2.value !== password1.value){
+        document.getElementById('pw2_check').innerHTML = "The Passwored dosen't match" ;
+        document.getElementById('pw2_check').style.fontWeight= "bold" ;
+        document.getElementById('password2').style.boxShadow="1px 1px 5px  2px blue";
+        document.getElementById('submitBtn').style.display="none"
+       
+
+
+    }else{
+        document.getElementById('pw2_check').innerHTML = "" ;
+        document.getElementById('password2').style.boxShadow="0px 0px 0px  0px black";
+        document.getElementById('submitBtn').style.display="block"
+    }
+    console.log("hhhhh"+passLen);
+}
+
+
+</script>
+</body>
+</html>
+

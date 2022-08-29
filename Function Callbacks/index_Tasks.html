@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- 1 :  Create a function called sum
+    that takes a single parameter n,
+    and return the sum of all integers up to n starting from 0
+    
+    Ex: sum(2); => 2 + 1 + 0 => 3
+    Ex: sum(5); => 5 + 4 + 3 + 2 + 1 + 0 => 15 -->
+
+
+    <!-- 2 :  Create a function called factorial
+    that takes a single parameter n,
+    and return the product of all integers up to n starting from 1
+    
+    Ex: factorial(3); =>3* 2 * 1 => 6
+    Ex: factorial(4); => 4 * 3 * 2 * 1 => 24 -->
+
+    <!--  3  :   Create a function called repeatStr
+    that takes 2 parameters string and number,
+    and return the string number time with space
+    Important: the stop condition should be [somthing=== 0]
+    Think how we can return nothing ???
+    Important: You should dint have extra space at the end
+
+    Ex: repeatStr("to",2); => "to to"
+    Ex: repeatStr("to",4); => "to to to to" -->
+
+
+<!--   4 :  Create a function called sum2
+    that take two parameter
+    and will return the sumation from the first number to the second number
+    
+    Ex: sum2(4, 5); => 4 + 5 => 9
+    Ex: sum2(3, 6); => 3 + 4 + 5 + 6 => 18
+ -->
+
+
+    <script>
+
+
+        //******************************************************** (01) :
+
+        function sum(n) {
+            if (n >= 0) {
+                return n + sum(n - 1);
+            } else {
+                return 0;
+            }
+
+        }
+
+        console.log("The Summation = "+sum(2));
+
+
+        //******************************************************** (02) :
+
+
+
+
+        function factorial(n2) {
+            if (n2 > 1)
+                return n2 * factorial(n2 - 1);
+            else
+                return 1;
+        }
+
+        console.log("The factorial = "+factorial(3))
+
+        //************************************************************ (03) :
+
+        function repeatStr(stringX, rn) {
+
+            if (rn <= 0) {
+                return "";
+            }
+            else {
+                return repeatStr(stringX, rn - 1) + " " + stringX
+            }
+        }
+        console.log("The repeat of the word is : "+repeatStr("to", 2));
+        console.log("The repeat of the word is : "+repeatStr("to", 20));
+
+
+
+        //************************************************************ (04) :
+
+
+        function sum2(number1,number2) {
+            if (number1 < number2) {
+                return number1 + sum2(number1 + 1, number2);
+            } 
+            if(number1==number2){
+                return number1 ;
+            }
+            if(number1>number2){
+                return number1 + sum2(number1 - 1, number2);
+            }
+
+        }
+        console.log(sum2(4, 5))
+        console.log(sum2(6, 3))
+
+        //**************************************************************************************8888
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
